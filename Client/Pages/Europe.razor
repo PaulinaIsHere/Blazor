@@ -1,0 +1,86 @@
+﻿@page "/europe"
+
+<h3>European Union Countries and Capitals</h3>
+
+<MojWlasnyKomponent Color="blue" />
+
+<table class="country-table">
+    <thead>
+        <tr>
+            <th>Country</th>
+            <th>Capital</th>
+            <th>Flag</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var country in Countries)
+        {
+            <tr>
+                <td>@country.Name</td>
+                <td>@country.Capital</td>
+                <td><img src="@country.ImageUrl" alt="@country.Name" class="country-image" /></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    public class Country
+    {
+        public string? Name { get; set; }
+        public string? Capital { get; set; }
+        public string? ImageUrl { get; set; }
+    }
+
+    List<Country> Countries = new List<Country>
+    {
+
+        new Country {Name = "Austria", Capital = "Vienna", ImageUrl="austria.png" },
+        new Country {Name =  "Belgium", Capital = "Brussels ", ImageUrl="belgium.png" },
+        new Country {Name ="Bulgaria", Capital="Sofia", ImageUrl ="bulgaria.png"},
+        new Country {Name = "Croatia", Capital = "Zagreb ",ImageUrl="croatia.png"},
+        new Country {Name ="Cyprus", Capital = "Nicosia ", ImageUrl="cyprus.png"},
+        new Country {Name ="Czechia", Capital = "Prague ", ImageUrl="czechia.png"},
+        new Country {Name ="Denmark", Capital = "Copenhagen ", ImageUrl="denmark.png"},
+        new Country {Name ="Estonia", Capital = "Tallinn ", ImageUrl="estonia.png"},
+        new Country {Name ="Finland", Capital = "Helsinki ", ImageUrl="finland.png"},
+        new Country {Name ="France", Capital = "Paris ", ImageUrl="france.png"},
+        new Country {Name = "Germany", Capital = "Berlin", ImageUrl = "germany.png" },
+        new Country {Name ="Greece", Capital = "Athens", ImageUrl="greece.png"},
+        new Country {Name ="Hungary", Capital = "Budapest", ImageUrl="hungary.png"},
+        new Country {Name ="Ireland", Capital = "Dublin", ImageUrl="ireland.png"},
+        new Country {Name ="Itlay", Capital = "Rome", ImageUrl="italy.png"},
+        new Country {Name ="Latvia", Capital = "Riga", ImageUrl="latvia.png"},
+        new Country {Name ="Lithuania", Capital = "Vilnius", ImageUrl="lithuania.png"},
+        new Country {Name ="Luxembourg", Capital = "Luxembourg", ImageUrl="luxembourg.png"},
+        new Country {Name ="Malta", Capital = "Valletta", ImageUrl="malta.png"},
+        new Country {Name ="Netherlands", Capital = "Amsterdam", ImageUrl="netherlands.png"},
+        new Country {Name = "Poland", Capital = "Warsaw", ImageUrl = "poland.png" },
+        new Country {Name ="Portugal", Capital = "Lisbon", ImageUrl="portugal.png"},
+        new Country {Name ="Romania", Capital = "Bucharest", ImageUrl="romania.png"},
+        new Country {Name ="Slovakia", Capital = "Bratislava", ImageUrl="slovakia.png"},
+        new Country {Name ="Slovenia", Capital = "Ljubljana", ImageUrl="slovenia.png"},
+        new Country {Name ="Spain", Capital = "Madrid", ImageUrl="spain.png"},
+        new Country {Name ="Sweden", Capital = "Stockholm", ImageUrl="sweden.png"},
+
+    };
+}
+
+<style>
+    .country-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+        .country-table th,
+        .country-table td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+    .country-image {
+        max-width: 100px;
+        height: auto;
+    }
+</style>
